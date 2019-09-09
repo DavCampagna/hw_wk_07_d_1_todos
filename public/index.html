@@ -4,24 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>ToDo's</title>
+  <title>Vue</title>
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <link rel="stylesheet" href="./css/styles.css">
   <script src="./js/bundle.js"></script>
 </head>
 <body>
   <div id="app">
-    <h1>ToDo's</h1>
     <ul>
-      <li v-for="toDo in toDos">
+      <li v-for="(toDo, index) in toDos"
+          v-bind:class="{'done': toDo.done,
+          'notDone': !toDo.done}">
         <span>{{ toDo.description }}</span>
-        <!-- <button v-if="!toDo.done"
-                v-on:click="buyItem(index)">
-          Purchase
-        </button> -->
+        <span v-if="toDo.done">Done!</span>
+        <button v-if="!toDo.done"
+                v-on:click="markAsDone(index)">
+          Mark this as done
+        </button>
       </li>
     </ul>
-    <!-- <input type="text" v-model="newToDo">
-    <button v-on:click="saveNewToDo">Add something to do:</button> -->
+    <input type="text" v-model="newToDo">
+    <button v-on:click="saveNewToDo">Add New Thing to do</button>
   </div>
 </body>
+</html>
