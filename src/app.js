@@ -6,9 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
     el: "#app",
     data: {
       toDos: [
-        {description: "clean the sky", done: false},
-        {description: "buy a nose", done: false},
-        {description: "eat a pinecone", done: true}
+        {description: "clean the sky", done: false, priority: "high"},
+        {description: "buy a nose", done: false, priority: "low"},
+        {description: "eat a pinecone", done: true, priority: "high"}
         ],
       newToDo: ""
     },
@@ -16,7 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
       saveNewToDo: function() {
         this.toDos.push({
         description: this.newToDo,
-        done: false
+        done: false,
+        // priority: this.priority,
       });
       this.newToDo = "";
     },

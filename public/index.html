@@ -11,6 +11,19 @@
 </head>
 <body>
   <div id="app">
+    <h1>ToDo's</h1>
+    <input type="text" v-model="newToDo">
+    <div class="form-element">
+      <legend></legend>
+      <fieldset>
+        <label for="high">high</label>
+        <input type="radio" name="priority" id="high" value="high"/>
+
+        <label for="low">low</label>
+        <input type="radio" name="priority" id="low" value="low"/>
+      </fieldset>
+      <button v-on:click="saveNewToDo">Save</button>
+    </div>
     <ul>
       <li v-for="(toDo, index) in toDos"
           v-bind:class="{'done': toDo.done,
@@ -23,8 +36,6 @@
         </button>
       </li>
     </ul>
-    <input type="text" v-model="newToDo">
-    <button v-on:click="saveNewToDo">Add New Thing to do</button>
   </div>
 </body>
 </html>
